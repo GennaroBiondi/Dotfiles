@@ -6,6 +6,7 @@
 	min-height: 0;
 	font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
 	font-size: 1rem; /* Adjust font using gtk-font size, like nwg-look or lxappearance */
+	font-weight: bold;
 }
 
 window#waybar {
