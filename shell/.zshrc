@@ -105,6 +105,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias clr="clear"
+alias find="fd"
+alias grep="rg"
 
 # Env vars
 EDITOR="nvim"
