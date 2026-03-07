@@ -106,6 +106,9 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias clr="clear"
 
+# Env vars
+EDITOR="nvim"
+
 # Keep these on the bottom.
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
