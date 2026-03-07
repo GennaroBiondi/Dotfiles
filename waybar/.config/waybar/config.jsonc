@@ -40,6 +40,24 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": " {:%a %b %d}",
   },
+	
+	"mpris": {
+		"format": "{status_icon} {artist} — {title}",
+		"format-paused": "{status_icon} <i>{artist} — {title}</i>",
+		"status-icons": {
+			"playing": "▶",
+			"paused": "⏸",
+			"stopped": "⏹"
+		},
+		"player-icons": {
+			"spotify": "阮",
+			"mpv": "🎵",
+			"default": "♪"
+		},
+		"on-click": "playerctl play-pause",
+		"on-middle-click": "playerctl previous",
+		"on-right-click": "playerctl next"
+	},
 
   // "temperature": {
   //   "critical-threshold": 80,
