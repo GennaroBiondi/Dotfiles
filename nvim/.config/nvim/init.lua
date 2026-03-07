@@ -1,2 +1,4 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
+print("Neovim started.")
+require("config.options")
+require("config.binds")
 require("config.lazy")

@@ -1,12 +1,6 @@
-vim.opt.wrap = true
--- Folds
--- vim.opt.foldcolumn = "0" -- '0' is not bad
--- vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
--- vim.opt.foldlevelstart = 99
--- vim.opt.foldenable = true
+vim.opt.number = true         -- Show line numbers
+vim.opt.relativenumber = true -- Show line numbers relative to current line
+vim.opt.cursorline = true     -- Highlight the cursor current line
+vim.opt.shiftwidth = 4        -- Make tabs 4 chars wide
 
--- Tabs
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = false
+vim.api.nvim_set_option("clipboard", "unnamed") -- Set clipboard to global

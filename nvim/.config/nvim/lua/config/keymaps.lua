@@ -1,5 +1,0 @@
-vim.keymap.set("i", "<C-BS>", "<C-W>")
-vim.keymap.set("i", "<C-h>", "<C-W>")
-vim.keymap.set("n", "yil", "0y$", { desc = "Yank in Line" })
-vim.keymap.del("n", "<leader>l")
-vim.keymap.set("n", "<leader>lp", "<cmd>Lazy<cr>")
