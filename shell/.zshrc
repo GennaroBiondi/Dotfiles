@@ -108,6 +108,10 @@ alias clr="clear"
 alias find="fd"
 alias grep="rg"
 
+copy() {
+    "$@" | wl-copy
+}
+
 # Env vars
 EDITOR="nvim"
 
