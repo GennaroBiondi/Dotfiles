@@ -1,0 +1,43 @@
+gui:
+  theme:
+    backgroundColor:
+      - "#1e1e2e"
+    textColor:
+      - "#cdd6f4"
+    selectedLineBgColor:
+      - "#3a3a3a"
+    selectedLineFgColor:
+      - "#ffffff"
+    activeBorderColor:
+      - "#cdd6f4"
+    inactiveBorderColor:
+      - "#6c7086"
+    optionsTextColor:
+      - "#a6adc8"
+  nerdFontsVersion: "3"
+  showFileIcons: true
+  border: rounded
+  spinner:
+    # The frames of the spinner animation.
+    frames:
+      - '0'
+      - 'o'
+
+    # The "speed" of the spinner in milliseconds.
+    rate: 50
+
+keybinding:
+  universal:
+    quit: "q"
+    nextItem: "j"
+    prevItem: "k"
+  files:
+    stageAll: "A"
+    discardHunk: "x"
+  commits:
+    commit: "c"
+    amend: "a"
+
+diff:
+  contextSize: 3
+  ignoreWhitespace: false
