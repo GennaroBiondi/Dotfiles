@@ -20,11 +20,15 @@ gui:
   spinner:
     # The frames of the spinner animation.
     frames:
-      - '0'
+      - 'O'
+      - 'U'
+      - 'u'
       - 'o'
+      - 'u'
+      - 'U'
 
     # The "speed" of the spinner in milliseconds.
-    rate: 50
+    rate: 100
 
 keybinding:
   universal:
