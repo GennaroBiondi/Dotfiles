@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions fzf)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions fzf-tab)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,5 +116,6 @@ copy() {
 EDITOR="nvim"
 
 # Keep these on the bottom.
+autoload -Uz compinit && compinit
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
