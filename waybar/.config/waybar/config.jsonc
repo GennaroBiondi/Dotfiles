@@ -1,64 +1,71 @@
 {
-  "layer": "top",
-  "position": "top",
-  "margin-left": 4,
-  "margin-right": 4,
-  "margin-top": 4,
-  "margin-bottom": 0,
-  "spacing": 1,
-  "reload_style_on_change": true,
+    "layer": "top",
+    "position": "top",
+    "margin-left": 4,
+    "margin-right": 4,
+    "margin-top": 4,
+    "margin-bottom": 0,
+    "spacing": 1,
+    "reload_style_on_change": true,
 
   // Choose the order of the modules
 
   "modules-left": [
-    "wireplumber",
+      "custom/syscontrols",
+      "wireplumber"
   ],
 
   "modules-center": [
-    "clock",
+      "clock"
   ],
 
   "modules-right": [
-      "mpris",
+      "mpris"
   ],
 
+  "custom/syscontrols": {
+      "tooltip-format": "System controls",
+      "format": " 󰣇 ",
+      "on-click": ". ~/.local/bin/system_control.bash"
+  },
+
   "group/custom-group": {
-    "orientation": "horizontal",
-    "modules": ["tray", "idle_inhibitor", "custom/power"],
+      "orientation": "horizontal",
+      "modules": ["tray", "idle_inhibitor", "custom/power"],
   },
 
   "tray": {
-    "icon-size": 16,
-    "spacing": 10,
-    "show-passive-items": true,
-    "reverse-direction": true,
+      "icon-size": 16,
+      "spacing": 10,
+      "show-passive-items": true,
+      "reverse-direction": true,
   },
 
   "clock": {
-    "interval": 60,
-    "format": "{:%H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": " {:%a %b %d}",
+      "interval": 60,
+      "format": "{:%H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": " {:%a %b %d}",
   },
-	
-	"mpris": {
-		"format": "{status_icon} {artist} — {title}",
-		"format-paused": "{status_icon} <i>{artist} — {title}</i>",
-		"max-length": 90,
-		"status-icons": {
-			"playing": "▶",
-			"paused": "⏸",
-			"stopped": "⏹"
-		},
-		"player-icons": {
-			"spotify": "阮",
-			"mpv": "🎵",
-			"default": "♪"
-		},
-		"on-click": "playerctl play-pause",
-		"on-middle-click": "playerctl previous",
-		"on-right-click": "playerctl next"
-	},
+
+  "mpris": {
+      "format": "{status_icon} {artist} — {title}",
+      "format-paused": "{status_icon} <i>{artist} — {title}</i>",
+      "max-length": 90,
+      "status-icons": {
+	  "playing": "▶",
+	  "paused": "⏸",
+	  "stopped": "⏹"
+      },
+      "player-icons": {
+	  "spotify": "阮",
+	  "mpv": "🎵",
+	  "default": "♪"
+      },
+      "on-click": "playerctl play-pause",
+      "on-middle-click": "playerctl previous",
+      "on-right-click": "playerctl next"
+  },
 
   // "temperature": {
   //   "critical-threshold": 80,
@@ -110,21 +117,21 @@
     // "format-source": " {volume}%",
     // "format-source-muted": "",
     "format-icons": {
-      "headphone": "󰋋",
-      "hands-free": "󱡒",
-      "headset": "󰋎",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""],
+	"headphone": "󰋋",
+	"hands-free": "󱡒",
+	"headset": "󰋎",
+	"phone": "",
+	"portable": "",
+	"car": "",
+	"default": ["", "", ""],
     },
     "on-click": "pavucontrol",
   },
 
   "wireplumber": {
-    "format": "{icon} {volume:>3}%",
-    "format-muted": "󰖁 {volume:>3}%",
-    "format-icons": ["", "", ""],
+      "format": "{icon} {volume:>3}%",
+      "format-muted": "󰖁 {volume:>3}%",
+      "format-icons": ["", "", ""],
   },
 
   // "bluetooth": {

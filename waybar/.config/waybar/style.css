@@ -3,34 +3,18 @@
 @define-color bg alpha(@background, 1.0);
 
 * {
-	min-height: 0;
-	font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
-	font-size: 1rem; /* Adjust font using gtk-font size, like nwg-look or lxappearance */
-	font-weight: bold;
+    min-height: 0;
+    font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem; /* Adjust font using gtk-font size, like nwg-look or lxappearance */
+    font-weight: bold;
 }
 
 window#waybar {
-  color: @fg;
+  color: @foreground;
   background: none;
 }
 
-#clock {
-    background-color: @bg;
-    padding: 4px 8px;
-    border-radius: 10px;
-    margin: 5px;
-    color: @foreground;
-}
-
-#mpris {
-    background-color: @bg;
-    padding: 4px 8px;
-    border-radius: 10px;
-    margin: 5px;
-    color: @foreground;
-}
-
-#wireplumber {
+#clock, #syscontrols, #mpris, #wireplumber {
     background-color: @bg;
     padding: 4px 8px;
     border-radius: 10px;
