@@ -1,5 +1,5 @@
 #window {
-	border-radius: 10px;
+	border-radius: 30px;
 	border: 3px solid #cdd6f4;
 	background-color: rgba(--wofi-rgb-color1, 1.0);
 	font-size: 18px;
@@ -27,7 +27,9 @@
 }
 
 #input:focus {
-	border-radius: 0;
+    color: rgba(255, 255, 255, 0.0);
+    background-color: transparent;
+    border-radius: 0;
 }
 
 #entry {

@@ -6,3 +6,5 @@ no_actions=true
 key_up=Control_L-p
 key_down=Control_L-n
 location=center
+width=90%
+height=80%
