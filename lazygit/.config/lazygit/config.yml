@@ -29,19 +29,3 @@ gui:
 
     # The "speed" of the spinner in milliseconds.
     rate: 100
-
-keybinding:
-  universal:
-    quit: "q"
-    nextItem: "j"
-    prevItem: "k"
-  files:
-    stageAll: "A"
-    discardHunk: "x"
-  commits:
-    commit: "c"
-    amend: "a"
-
-diff:
-  contextSize: 3
-  ignoreWhitespace: false
