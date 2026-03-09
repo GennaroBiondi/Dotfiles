@@ -8,9 +8,9 @@ fi
 
 option=$(printf "Shutdown\nReboot\nLogout\n$notification_format notifications" | wofi --dmenu)
 if [ "$option" = "Shutdown" ]; then
-    sudo systemctl poweroff
+    systemctl poweroff
 elif [ "$option" = "Reboot" ]; then
-    sudo systemctl reboot
+    systemctl reboot
 elif [ "$option" = "Logout" ]; then
     hyprctl dispatch exit
 elif [ "$option" = "$notification_format notifications" ]; then
