@@ -1,6 +1,2 @@
-require("config.options")
-require("config.binds")
-require("config.lazy")
-require("config.lsp")
-require("config.cmp")
+require("config")
 print("Neovim started.")
