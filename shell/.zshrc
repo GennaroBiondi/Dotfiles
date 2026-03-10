@@ -112,6 +112,27 @@ copy() {
     "$@" | wl-copy
 }
 
+fmount() {
+    if [  "$EUID" -ne 0 ]; then
+	echo "not running as root, aborting..."
+	return 1
+    fi
+
+    if [ -z "$1" ]; then
+	echo "no partition name given, aborting..."
+	return 1
+    fi
+
+    folder_name="$1"
+    if [ ! -z "$2 "]; then
+	folder_name="$2"
+    fi
+
+    mkdir /mnt/"$folder_name"
+    sudo mount /dev/"$1" /mnt/"$folder_name"
+    cd /mnt/"$folder_name"
+}
+
 # Env vars
 EDITOR="nvim"
 
