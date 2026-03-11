@@ -1,4 +1,5 @@
 #!/usr/bin/sh
+
 script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 file="$script_dir/todo.list"
 
@@ -11,6 +12,9 @@ elif [ "$cmd" = "skip" ]; then
 elif [ "$cmd" = "done" ]; then
     sed -i 's/\[ ]/[x]/g' "$file"
     sed -i 's/\[.\]/[x]/g' "$file"
+elif [ "$cmd" = "setup" ]; then
+    cd ~/.todo
+    touch todo.list
 else
     echo "Invalid command $cmd"
 fi
