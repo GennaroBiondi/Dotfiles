@@ -486,3 +486,30 @@ vim.api.nvim_create_user_command("LspInfo", function()
 end, {
 	desc = "Get all the information about all LSP attached",
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ev)
+    local bufnr = ev.buf
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client.server_capabilities.documentFormattingProvider then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({ async = false })
+        end,
+      })
+    end
+  end,
+})
+
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = "*", -- character to show inline
+    spacing = 1,
+    severity = { min = vim.diagnostic.severity.ERROR }, -- only errors, optional
+  },
+  signs = true,       -- gutter signs
+  underline = true,   -- underline problematic code
+  update_in_insert = true,
+  severity_sort = true,
+})
