@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
-screenshot_mode=$(printf "Screenshot region\nScreenshot display" | wofi --dmenu --sort-order alphabetical)
+screenshot_mode=$(printf " Screenshot region\n󰹑 Screenshot display" | wofi --dmenu --sort-order alphabetical)
 [ -z "$screenshot_mode" ] && exit
 
-screenshot_to=$(printf "Clipboard\nFilesystem" | wofi --dmenu --sort-order alphabetical)
+screenshot_to=$(printf " Clipboard\n Filesystem" | wofi --dmenu --sort-order alphabetical)
 [ -z "$screenshot_to" ] && exit
 
 case "$screenshot_mode" in
