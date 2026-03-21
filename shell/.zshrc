@@ -132,8 +132,16 @@ fmount() {
 }
 
 movetors() {
-    mv "$1" /home/Gennaro/.var/app/org.vinegarhq.Vinegar/data/vinegar/prefixes/studio/drive_c/users/Gennaro/Downloads
+    cp "$1" /home/Gennaro/.var/app/org.vinegarhq.Vinegar/data/vinegar/prefixes/studio/drive_c/users/Gennaro/Downloads
 }
+
+copyluautemplate() {
+    echo "--!strict\n\n-- Services\n\n-- Variables\n\n-- Functions" | wl-copy
+}
+
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+    exec tmux
+fi
 
 # Env vars
 EDITOR="nvim"
