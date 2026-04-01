@@ -139,6 +139,39 @@ copyluautemplate() {
     echo "--!strict\n\n-- Services\n\n-- Variables\n\n-- Functions" | wl-copy
 }
 
+yt_dlp_sh() {
+    argument="$1"
+    link="$2"
+
+    if [ -z "$argument" ]; then
+        echo "Missing argument"
+        return 1
+    fi
+    if [ -z "$link" ] && [[ "$argument" != "--help" && "$argument" != "-h" ]]; then
+        echo "Missing link"
+        return 1
+    fi
+
+    if [[ "$argument" = "--help" || "$argument" = "-h" ]]; then
+        echo "Usage:"
+        echo "  yt_dlp_sh [ARGUMENT] [LINK]"
+        echo ""
+        echo "  Arguments:"
+        echo "    --help | -h    Display this help message"
+        echo "    --audio | -3   Download as mp3"
+        echo "    --video | -4   Download as mp4"
+        return 0
+    fi
+
+    if [[ "$argument" = "--audio" || "$argument" = "-3" ]]; then
+        yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 "$link"
+    fi
+
+    if [[ "$argument" = "--video" || "$argument" = "-4" ]]; then
+        yt-dlp -f "bestvideo+bestaudio" --merge-output-format mp4 "$link"
+    fi
+}
+
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
     exec tmux
 fi
