@@ -110,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 alias clr="clear"
 alias find="fd"
 alias grep="rg"
+alias aseprite="libresprite"
 
 copy() {
     "$@" | wl-copy
