@@ -14,11 +14,6 @@ return {
 			local lspkind = require("lspkind")
 
 			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
 
 				mapping = cmp.mapping.preset.insert({
 					["<C-Space>"] = cmp.mapping.complete(),
@@ -42,6 +37,11 @@ return {
 						end
 					end, { "i", "s" }),
 				}),
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
+					end,
+				},
 
 				formatting = {
 					format = lspkind.cmp_format(),
