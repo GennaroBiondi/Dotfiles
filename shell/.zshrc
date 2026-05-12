@@ -112,6 +112,15 @@ alias find="fd"
 alias grep="rg"
 alias aseprite="libresprite"
 
+cp_cpp() {
+    command find . -type f \( -name "*.cpp" -o -name "*.hpp" \) \
+        ! -path "*/build/*" | sort | while read -r file; do
+        echo "// $file"
+        cat "$file"
+        echo
+    done
+}
+
 copy() {
     "$@" | wl-copy
 }
