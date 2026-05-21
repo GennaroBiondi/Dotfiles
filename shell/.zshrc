@@ -121,8 +121,109 @@ cp_cpp() {
     done
 }
 
+cp_rs() {
+    command find . -type f \( -name "*.rs" \) \
+        ! -path "*/build/*" | sort | while read -r file; do
+        echo "// $file"
+        cat "$file"
+        echo
+    done
+}
+
 copy() {
     "$@" | wl-copy
+}
+
+# cppinit — scaffold a CMake C++ project
+# Add to ~/.zshrc: source /path/to/cppinit.zsh
+
+function cppinit() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: cppinit <project-name>"
+    return 1
+  fi
+
+  local project="$1"
+
+  if [[ -d "$project" ]]; then
+    echo "Error: directory '$project' already exists."
+    return 1
+  fi
+
+  echo "Creating project: $project"
+
+  # --- Directory structure ---
+  mkdir -p "$project"/{src,build}
+
+  # --- src/main.cpp ---
+  cat > "$project/src/main.cpp" <<EOF
+#include <iostream>
+
+int main() {
+    std::cout << "Hello from $project!" << std::endl;
+    return 0;
+}
+EOF
+
+  # --- CMakeLists.txt ---
+  cat > "$project/CMakeLists.txt" <<EOF
+cmake_minimum_required(VERSION 3.20)
+project($project VERSION 0.1.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+add_executable(\${PROJECT_NAME} src/main.cpp)
+
+target_compile_options(\${PROJECT_NAME} PRIVATE
+    -Wall
+    -Wextra
+    -Wpedantic
+)
+EOF
+
+  # --- .gitignore ---
+  cat > "$project/.gitignore" <<EOF
+build/
+.cache/
+compile_commands.json
+*.o
+*.a
+*.so
+EOF
+
+  # --- README.md ---
+  cat > "$project/README.md" <<EOF
+# $project
+
+## Build
+
+\`\`\`sh
+cd build
+cmake ..
+cmake --build .
+\`\`\`
+
+## Run
+
+\`\`\`sh
+./build/$project
+\`\`\`
+EOF
+
+  # --- Git init ---
+  git -C "$project" init --quiet
+  git -C "$project" add .
+  git -C "$project" commit --quiet -m "initial commit"
+
+  echo ""
+  echo "Done! Project '$project' is ready."
+  echo ""
+  echo "  cd $project/build"
+  echo "  cmake .."
+  echo "  cmake --build ."
+  echo "  ./$project"
 }
 
 fmount() {
