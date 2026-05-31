@@ -112,21 +112,34 @@ alias find="fd"
 alias grep="rg"
 alias aseprite="libresprite"
 
-cp_cpp() {
-    command find . -type f \( -name "*.cpp" -o -name "*.hpp" \) \
-        ! -path "*/build/*" | sort | while read -r file; do
-        echo "// $file"
-        cat "$file"
-        echo
-    done
-}
+cp_any() {
+    if [[ $# -eq 0 ]]; then
+        echo "Usage: cp_any <.ext1> [.ext2] ..." >&2
+        return 1
+    fi
 
-cp_rs() {
-    command find . -type f \( -name "*.rs" \) \
-        ! -path "*/build/*" | sort | while read -r file; do
+    local fence='```'
+    local find_args=()
+    for ext in "$@"; do
+        [[ "$ext" != .* ]] && ext=".${ext}"
+        [[ ${#find_args[@]} -gt 0 ]] && find_args+=(-o)
+        find_args+=(-name "*${ext}")
+    done
+
+    local exclude_dirs=("build" "dist" "node_modules" ".git" "target")
+    local prune_args=()
+    for dir in "${exclude_dirs[@]}"; do
+        [[ ${#prune_args[@]} -gt 0 ]] && prune_args+=(-o)
+        prune_args+=(-path "*/${dir}/*")
+    done
+
+    command find . -type f \( "${prune_args[@]}" \) -prune -o \
+        -type f \( "${find_args[@]}" \) -print | sort | \
+    while IFS= read -r file; do
+        echo "$fence"
         echo "// $file"
         cat "$file"
-        echo
+        echo "$fence"
     done
 }
 
@@ -294,3 +307,4 @@ EDITOR="nvim"
 autoload -Uz compinit && compinit
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
+amnosia remind
