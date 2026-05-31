@@ -1,0 +1,27 @@
+colors:
+  name: Catppuccin (mocha)
+  author: San_Genna
+  primary:
+    background: "#f7f7f7"
+    foreground: "#1e1e2e"
+  cursor:
+    text: "#cdd6f4"
+    cursor: "#f7f7f7"
+  normal:
+    black: "#11111b"
+    red: "#f38ba8"
+    green: "#a6e3a1"
+    yellow: "#f9e2af"
+    blue: "#89b4fa"
+    magenta: "#cba6f7"
+    cyan: "#74c7ec"
+    white: "#b4befe"
+  bright:
+    black: "#5c5855"
+    red: "#eba0ac"
+    green: "#94e2d5"
+    yellow: "#f5e0dc"
+    blue: "#89dceb"
+    magenta: "#f5c2e7"
+    cyan: "#74c7ec"
+    white: "#FFFFFF"
