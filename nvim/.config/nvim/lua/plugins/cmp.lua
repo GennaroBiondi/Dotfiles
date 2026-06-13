@@ -14,7 +14,9 @@ return {
 			local lspkind = require("lspkind")
 
 			cmp.setup({
-
+				-- view = {
+				-- 	entries = "custom",
+				-- },
 				mapping = cmp.mapping.preset.insert({
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -52,6 +54,10 @@ return {
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
+				},
+				window = {
+					completion = cmp.config.window.bordered({ border = "rounded" }),
+					documentation = cmp.config.window.bordered({ border = "rounded" }),
 				},
 			})
 		end,
