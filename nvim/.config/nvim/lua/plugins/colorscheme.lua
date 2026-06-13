@@ -2,9 +2,11 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("catppuccin")
-		end,
+		lazy = false,
+	},
+	{
+		"slugbyte/lackluster.nvim",
+		name = "lackluster",
+		lazy = false,
 	},
 }
