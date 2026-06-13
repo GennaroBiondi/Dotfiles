@@ -308,3 +308,5 @@ autoload -Uz compinit && compinit
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 amnosia remind
+
+[ -f "/home/Gennaro/.ghcup/env" ] && . "/home/Gennaro/.ghcup/env" # ghcup-env
