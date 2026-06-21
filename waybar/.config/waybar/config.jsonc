@@ -11,8 +11,8 @@
   // Choose the order of the modules
 
   "modules-left": [
-      "custom/syscontrols",
-      "wireplumber"
+      "wireplumber",
+	  "hyprland/workspaces"
   ],
 
   "modules-center": [
@@ -23,15 +23,9 @@
       "mpris"
   ],
 
-  "custom/syscontrols": {
-      "tooltip-format": "System controls",
-      "format": " 󰣇 ",
-      "on-click": ". ~/.local/bin/system_control.bash"
-  },
-
   "group/custom-group": {
       "orientation": "horizontal",
-      "modules": ["tray", "idle_inhibitor", "custom/power"],
+      "modules": ["tray", "idle_inhibitor", "custom/power"]
   },
 
   "tray": {
