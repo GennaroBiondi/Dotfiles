@@ -1,0 +1,8 @@
+hl.on("hyprland.start", function()
+	hl.exec_cmd("awww-daemon")
+	hl.exec_cmd("waybar")
+	hl.exec_cmd(browser, { workspace = "1" })
+	hl.exec_cmd("discord", { workspace = "3 silent" })
+	hl.exec_cmd("sh -c 'sleep 1 && /usr/lib/xdg-desktop-portal-hyprland & /usr/lib/xdg-desktop-portal --replace'")
+	hl.exec_cmd("sh -c 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP'")
+end)
