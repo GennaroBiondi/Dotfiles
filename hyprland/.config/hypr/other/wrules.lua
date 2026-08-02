@@ -1,18 +1,18 @@
 hl.window_rule({
-	name  = "suppress-maximize-events",
-	match = { class = ".*" },
+	name           = "suppress-maximize-events",
+	match          = { class = ".*" },
 	suppress_event = "maximize",
 })
 
 hl.window_rule({
-	name  = "gigasas-fullscreen",
-	match = { class = "^steam_app_0$", title = "^GIGASAS$" },
+	name       = "gigasas-fullscreen",
+	match      = { class = "^steam_app_0$", title = "^GIGASAS$" },
 	fullscreen = true,
 })
 
 hl.window_rule({
-	name  = "fix-xwayland-drags",
-	match = {
+	name     = "fix-xwayland-drags",
+	match    = {
 		class      = "^$",
 		title      = "^$",
 		xwayland   = true,
