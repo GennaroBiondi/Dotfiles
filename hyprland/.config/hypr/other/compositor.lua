@@ -20,7 +20,8 @@ hl.config({
 	},
 
 	misc = {
-		force_default_wallpaper = false,
-		disable_hyprland_logo   = true,
+		force_default_wallpaper    = false,
+		initial_workspace_tracking = 2,
+		disable_hyprland_logo      = true,
 	},
 })

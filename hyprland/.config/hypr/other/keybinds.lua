@@ -16,6 +16,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("~/.scripts/wofi-music.sh"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("~/.scripts/wofi-devices.sh"))
 hl.bind("CTRL + Delete", hl.dsp.exec_cmd("~/.scripts/system-control.bash"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("~/.scripts/screenshot.sh"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.scripts/toggle-indicator.sh"))
 
 -- Focus
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
