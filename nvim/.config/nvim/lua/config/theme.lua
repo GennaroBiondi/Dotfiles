@@ -6,6 +6,7 @@ function M.set(name)
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 	vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	-- Persist to a file
 	local f = io.open(vim.fn.stdpath("data") .. "/theme", "w")
 	if f then
