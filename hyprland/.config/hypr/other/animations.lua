@@ -19,8 +19,8 @@ hl.curve("OutBack", { type = "bezier", points = { { 0.28, 1.40 }, { 0.58, 1 } } 
 
 hl.animation({ leaf = "border", enabled = true, speed = 1.6, bezier = "liner" })
 hl.animation({ leaf = "borderangle", enabled = true, speed = 82, bezier = "liner", style = "once" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 3.2, bezier = "winIn", style = "slide" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.8, bezier = "winOut", style = "slide" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 3.2, bezier = "winIn", style = "popin 80%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.8, bezier = "winOut", style = "popin 80%" })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 3.0, bezier = "wind", style = "slide" })
 hl.animation({ leaf = "fade", enabled = true, speed = 1.8, bezier = "md3_decel" })
 hl.animation({ leaf = "layersIn", enabled = true, speed = 1.8, bezier = "menu_decel", style = "slide" })
