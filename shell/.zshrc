@@ -148,6 +148,56 @@ copy() {
     "$@" | wl-copy
 }
 
+remind() {
+    if [ "$#" -lt 2 ]; then
+        echo "Usage: remind <time> <message>"
+        echo
+        echo "Examples:"
+        echo "  remind +1h 'Take a break'"
+        echo "  remind +30m 'Check the oven'"
+        echo "  remind +2h30m 'Meeting'"
+        echo "  remind 18:30 'Leave'"
+        echo "  remind '2026-09-01 18:30' 'Dinner'"
+        return 1
+    fi
+
+    local TIME="$1"
+    shift
+    local MESSAGE="$*"
+    local SECONDS
+
+    # Relative time: +1h, +30m, +2h30m, +45s
+    if [[ "$TIME" =~ ^\+([0-9]+)h([0-9]+)m$ ]]; then
+        SECONDS=$(( ${BASH_REMATCH[1]} * 3600 + ${BASH_REMATCH[2]} * 60 ))
+    elif [[ "$TIME" =~ ^\+([0-9]+)h$ ]]; then
+        SECONDS=$(( ${BASH_REMATCH[1]} * 3600 ))
+    elif [[ "$TIME" =~ ^\+([0-9]+)m$ ]]; then
+        SECONDS=$(( ${BASH_REMATCH[1]} * 60 ))
+    elif [[ "$TIME" =~ ^\+([0-9]+)s$ ]]; then
+        SECONDS="${BASH_REMATCH[1]}"
+    else
+        # Specific date/time
+        local TARGET
+        TARGET=$(date -d "$TIME" +%s) || return 1
+        local NOW
+        NOW=$(date +%s)
+        SECONDS=$((TARGET - NOW))
+
+        if [ "$SECONDS" -le 0 ]; then
+            echo "Error: time is in the past."
+            return 1
+        fi
+    fi
+
+    echo "⏰ Reminder set for $(date -d "+$SECONDS seconds" '+%H:%M:%S')"
+    echo "   $MESSAGE"
+
+    (
+        sleep "$SECONDS"
+        notify-send "Reminder" "$MESSAGE"
+    ) &
+}
+
 # cppinit — scaffold a CMake C++ project
 # Add to ~/.zshrc: source /path/to/cppinit.zsh
 
