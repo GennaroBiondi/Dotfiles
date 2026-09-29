@@ -66,7 +66,7 @@ return {
 				})
 			end
 
-			for _, ft in ipairs({ "c", "cpp", "h", "hpp" }) do
+			for _, ft in ipairs({ "c", "cpp", "h", "hpp", "rust" }) do
 				local base = require("plugins.snippets." .. ft)
 				local all = {}
 				for _, snip in ipairs(base) do
