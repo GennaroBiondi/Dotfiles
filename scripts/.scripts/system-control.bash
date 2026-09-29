@@ -15,7 +15,7 @@ else
 fi
 
 # Build menu with wofi
-option=$(printf "⏻ Shutdown\n󱥸 Reboot\n󰀄 Logout\n %s Notifications\n %s Waybar" "$notification_format" "$waybar_state" | wofi --sort-order=no_sort --dmenu --cache-file /dev/null)
+option=$(printf "⏻ Shutdown\n󱥸 Reboot\n UEFI Firmware\n󰀄 Logout\n %s Notifications\n %s Waybar" "$notification_format" "$waybar_state" | wofi --sort-order=no_sort --dmenu --cache-file /dev/null)
 
 # Handle selections
 case "$option" in
@@ -25,6 +25,9 @@ case "$option" in
     "󱥸 Reboot")
         systemctl reboot
         ;;
+	" UEFI Firmware")
+		systemctl reboot --firmware-setup
+		;;
     "󰀄 Logout")
         hyprctl dispatch exit
         ;;
