@@ -75,8 +75,24 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions fzf-tab)
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7a7a7a"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#AAAAAA"
+
+zstyle ':fzf-tab:*' fzf-flags '--color=fg:#550000,bg:#080808,fg+:#FF0000,bg+:#090909,hl:#FF0000,pointer:#FF0000,marker:#FF0000'
+export LS_COLORS='di=01;31:ln=38;5;167:fi=37'
+
+zstyle ':fzf-tab:*' fzf-colors \
+    'fg:#ffffff,bg:#080808' \
+    'fg+:#080808,bg+:#ffffff' \
+    'hl:#FF0000' \
+    'pointer:#FF0000' \
+    'marker:#FF0000'
+
+export FZF_DEFAULT_OPTS='--color=fg:#ffffff,bg:#080808,fg+:#080808,bg+:#ffffff,hl:#FF0000,pointer:#FF0000,marker:#FF0000'
+
 source $ZSH/oh-my-zsh.sh
+
+ZSH_HIGHLIGHT_STYLES[command]='fg=white'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
 
 # User configuration
 
